@@ -76,7 +76,7 @@ const prompt = [
         type: 'list',
         name: 'license',
         message: "Please choose a license for this project: ",
-        choices: ['no license', 'kinda license', 'license']
+        choices: ['Apache License 2.0', 'GNU General Public License v3.0', 'MIT', 'The Unlicense']
     },
     {
         type: 'input',
