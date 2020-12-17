@@ -15,32 +15,43 @@ function generateMarkdown(data) {
   const introSection = `# ${data.title}
 ## Project Description
 ${data.description}`
-  
+
+
+  let install = ['']
+  if (data.typeOf === "Deployed Website") {
+    install = data.url.split("+")
+  } else if (data.typeOf === "Node.js App") {
+    install = data.install.split("+")
+  } else {
+    install = data.installOther.split("+")
+  }
   let installSection = `
 ## Installation`
   if (data.typeApp === "Deployed Website") {
     installSection += `
-This is a website application: please go to this [link](${data.install[0]})`
+This is a website application: please go to this [link](${install[0].trim()})`
   } else if (data.typeApp === "Node.js App") {
     installSection += `
 1. This is a Node.js application: please make sure you have [node downloaded](https://nodejs.org/en/download/)
 1. Create a local repository and [clone](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository) this GitHub repository to it.`
-    data.install.forEach(step => {
+    install.forEach(step => {
       installSection += `
-1. ${step}`
+1. ${step.trim()}`
     });
   } else {
-    data.install.forEach(step => {
+    install.forEach(step => {
       installSection += `
-1. ${step}`
+1. ${step.trim()}`
     });
   }
 
+
+  let usage = data.usage.split('+')
   let usageSection = `
 ## Usage`
-  data.usage.forEach(step => {
+  usage.forEach(step => {
     usageSection += `
-1. ${step}`
+1. ${step.trim()}`
   })
 
   const lowerSection = `
