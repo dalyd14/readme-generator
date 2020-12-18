@@ -2,15 +2,13 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 # ReadMe Generator
 ## Table of Contents
-- [ReadMe Generator](#readme-generator)
-  - [Table of Contents](#table-of-contents)
-  - [Project Description](#project-description)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Contributing](#contributing)
-  - [Testing](#testing)
-  - [License](#license)
-  - [Questions](#questions)
+* [Project Description](#project-description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [Testing](#testing)
+* [License](#license)
+* [Questions](#questions)
 
 ## Project Description
 This Node.js app will generate a professional README automatically.
@@ -19,6 +17,7 @@ This Node.js app will generate a professional README automatically.
 1. This is a Node.js application: please make sure you have [node downloaded](https://nodejs.org/en/download/)
 1. Create a local repository and [clone](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository) this GitHub repository to it.
 1. Navigate to the folder in your terminal
+1. Run the following command to install the required dependencies npm i
 1. Type in "node index"
 1. If there is an error, please make sure you did steps 1 and 2 correctly
 ## Usage

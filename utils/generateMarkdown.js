@@ -1,16 +1,29 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
+// This function creates a badge depending on the license chosen
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+const renderLicenseBadge = license => {
+  let licenseBadge = ''
+  switch (license) {
+    case 'Apache License 2.0':
+      licenseBadge = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
+      break;
+    case 'GNU General Public License v3.0':
+      licenseBadge = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)'
+      break;
+    case 'MIT':
+      licenseBadge = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
+      break;
+    case 'The Unlicense':
+      licenseBadge = '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)'
+      break;
+    default:
+      licenseBadge = ``
+      break;
+  }
+  return licenseBadge
+}
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
-function renderTableOfContents(data) {
+// This function creates a table of contents based on select keys from the answers object
+const renderTableOfContents = data => {
   let contents = ``
   Object.keys(data).forEach(key => {
     if(data[key] === '') {
@@ -56,35 +69,21 @@ function renderTableOfContents(data) {
   return contents
 }
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  let licenseBadge = ''
-  switch (data.license) {
-    case 'Apache License 2.0':
-      licenseBadge = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
-      break;
-    case 'GNU General Public License v3.0':
-      licenseBadge = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)'
-      break;
-    case 'MIT':
-      licenseBadge = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
-      break;
-    case 'The Unlicense':
-      licenseBadge = '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)'
-      break;
-    default:
-      licenseBadge = ``
-      break;
-  }
-  const introSection = `
-${licenseBadge}
+// This function creates an intro section that will include the license badge, the title, 
+// table of contents and then the project description
+const renderIntroSection = data => {
+  return `
+${renderLicenseBadge(data.license)}
 # ${data.title}
 ## Table of Contents
 ${renderTableOfContents(data)}
 ## Project Description
 ${data.description}
 `
+}
 
+// This function creates the installation instructions section of the README
+const renderInstallSection = data => {
   let install = ['']
   if (data.typeOf === "Deployed Website") {
     install = data.url.split("+")
@@ -112,16 +111,24 @@ This is a website application: please go to this [link](${install[0].trim()})`
 1. ${step.trim()}`
     });
   }
+  return installSection
+}
 
-
-  let usage = data.usage.split('+')
+// This function creates the usage instructions section of the README
+const renderUsageSection = data => {
+  const usage = data.usage.split('+')
   let usageSection = `
 ## Usage`
   usage.forEach(step => {
     usageSection += `
 1. ${step.trim()}`
   })
+  return usageSection
+}
 
+// This function creates the lower section that will include the contributing section, 
+// the testing section, the license section and finally the questions section
+const renderLowerSection = data => {
   const lowerSection = `
 ## Contributing
 ${data.contribute}
@@ -133,6 +140,19 @@ Licensed under the ${data.license} license
 * Please visit my [GitHub Profile](https://github.com/${data.username})
 * If you have any questions regarding this project, please email me at [${data.email}](mailto:${data.email})
 `
+  return lowerSection
+}
+
+// This function generates the markdown for README
+function generateMarkdown(data) {
+
+  const introSection = renderIntroSection(data)
+
+  const installSection = renderInstallSection(data)
+
+  const usageSection = renderUsageSection(data)
+
+  const lowerSection = renderLowerSection(data)
 
   return introSection + installSection + usageSection + lowerSection;
 }
