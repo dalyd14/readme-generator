@@ -91,7 +91,7 @@ const prompt = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+const writeToFile = (fileName, data) => {
     fs.writeFile(fileName, data, (err) => {
         if (err) throw err
         console.log('README Generated Successfully!')
@@ -105,18 +105,16 @@ const answers = {
     install: 'Navigate to the folder in your terminal+Run the following command to install the required dependencies npm i+Type in "node index"+If there is an error, please make sure you did steps 1 and 2 correctly',
     usage: 'Run "node index" from your terminal + Answer the questions that will pop up regarding your project +Once you are finished answering the questions the ReadMe will be generated+You can locate the new file in the "dist" folder+Make any necessary changes need+Remember to add any pictures or links!',
     contribute: 'Please feel free to add to this project. You can clone/fork the repository and make any pull requests you would like.',
-    tests: "There are no tests created yet.",
+    tests: "Please run the following command 'npm test'",
     license: 'Apache License 2.0',
     username: 'dalyd14',
     email: 'dalyd14@gmail.com'
 }
 
-const promptInquirer = () => {
-    return inquirer.prompt(prompt)
-}
+const promptInquirer = () => inquirer.prompt(prompt)
 
 // TODO: Create a function to initialize app
-function init() {
+const init = () => {
     // promptInquirer()
     //     .then(answers => {
     //         const markdownFile = generateMarkdown(answers)
