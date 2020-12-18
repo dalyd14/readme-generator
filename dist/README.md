@@ -30,7 +30,7 @@ This Node.js app will generate a professional README automatically.
 ## Contributing
 Please feel free to add to this project. You can clone/fork the repository and make any pull requests you would like.
 ## Testing
-There are no tests created yet.
+Please run the following command 'npm test'
 ## License
 Licensed under the Apache License 2.0 license
 ## Questions

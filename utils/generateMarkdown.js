@@ -129,17 +129,30 @@ const renderUsageSection = data => {
 // This function creates the lower section that will include the contributing section, 
 // the testing section, the license section and finally the questions section
 const renderLowerSection = data => {
-  const lowerSection = `
+  let lowerSection = ``
+  if (data.contribute !== ''){
+    lowerSection += `
 ## Contributing
-${data.contribute}
+${data.contribute}`
+  }
+
+  if (data.tests !== ''){
+    lowerSection += `
 ## Testing
-${data.tests}
+${data.tests}`
+  }
+
+  if (data.license !== ''){
+    lowerSection += `
 ## License
-Licensed under the ${data.license} license
+Licensed under the ${data.license} license`
+  }
+
+  lowerSection += `
 ## Questions
 * Please visit my [GitHub Profile](https://github.com/${data.username})
-* If you have any questions regarding this project, please email me at [${data.email}](mailto:${data.email})
-`
+* If you have any questions regarding this project, please email me at [${data.email}](mailto:${data.email})`
+
   return lowerSection
 }
 
