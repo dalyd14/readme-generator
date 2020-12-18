@@ -10,6 +10,52 @@ function renderLicenseLink(license) {}
 // If there is no license, return an empty string
 function renderLicenseSection(license) {}
 
+function renderTableOfContents(data) {
+  let contents = ``
+  Object.keys(data).forEach(key => {
+    if(data[key] === '') {
+      delete data[key]
+    } else {
+      switch (key) {
+        case 'description':
+          contents += `* [Project Description](#project-description)
+`
+          break;
+        case 'url':
+        case 'install':
+        case 'installOther':
+          contents += `* [Installation](#installation)
+`
+          break;
+        case 'usage':
+          contents += `* [Usage](#usage)
+`
+          break;
+        case 'contribute':
+          contents += `* [Contributing](#contributing)
+`
+          break;
+        case 'tests':
+          contents += `* [Testing](#testing)
+`
+          break;
+        case 'license':
+          contents += `* [License](#license)
+`
+          break;
+        case 'username':
+          contents += `* [Questions](#questions)
+`
+          break;
+        default:
+          contents += ``
+          break;
+      }      
+    }
+  })
+  return contents
+}
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   let licenseBadge = ''
@@ -33,9 +79,11 @@ function generateMarkdown(data) {
   const introSection = `
 ${licenseBadge}
 # ${data.title}
+## Table of Contents
+${renderTableOfContents(data)}
 ## Project Description
-${data.description}`
-
+${data.description}
+`
 
   let install = ['']
   if (data.typeOf === "Deployed Website") {

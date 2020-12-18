@@ -99,14 +99,14 @@ function writeToFile(fileName, data) {
 }
 
 const answers = {
-    title: 'Readme Gen',
-    description: 'A node.j command line app for generating professional readmes for projects',
-    typeApp: "Node.js App",
-    install: ['This is first step', 'This is second step', 'This is third step'],
-    usage: ['Type "node index" to start the program', 'answer the prompted questions', 'The file will be generated in the dist folder', 'remember to make any necessary changes'] ,
-    contribute: 'No contributions please',
-    tests: "Don't",
-    license: 'kinda license',
+    title: 'ReadMe Generator',
+    description: 'This Node.js app will generate a professional README automatically.',
+    typeOf: "Node.js App",
+    install: 'Navigate to the folder in your terminal+Type in "node index"+If there is an error, please make sure you did steps 1 and 2 correctly',
+    usage: 'Run "node index" from your terminal + Answer the questions that will pop up regarding your project +Once you are finished answering the questions the ReadMe will be generated+You can locate the new file in the "dist" folder+Make any necessary changes need+Remember to add any pictures or links!',
+    contribute: 'Please feel free to add to this project. You can clone/fork the repository and make any pull requests you would like.',
+    tests: "There are no tests created yet.",
+    license: 'Apache License 2.0',
     username: 'dalyd14',
     email: 'dalyd14@gmail.com'
 }
@@ -117,13 +117,13 @@ const promptInquirer = () => {
 
 // TODO: Create a function to initialize app
 function init() {
-    promptInquirer()
-        .then(answers => {
-            const markdownFile = generateMarkdown(answers)
-            writeToFile("./dist/README-template.md", markdownFile)
-        })
-    // const markdownFile = generateMarkdown(answers)
-    // writeToFile("./dist/README-template.md", markdownFile)
+    // promptInquirer()
+    //     .then(answers => {
+    //         const markdownFile = generateMarkdown(answers)
+    //         writeToFile("./dist/README.md", markdownFile)
+    //     })
+    const markdownFile = generateMarkdown(answers)
+    writeToFile("./dist/README.md", markdownFile)
 }
 
 // Function call to initialize app
