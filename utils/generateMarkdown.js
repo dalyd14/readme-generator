@@ -100,15 +100,21 @@ This is a website application: please go to this [link](${install[0].trim()})`
   } else if (data.typeOf === "Node.js App") {
     installSection += `
 1. This is a Node.js application: please make sure you have [node downloaded](https://nodejs.org/en/download/)
-1. Create a local repository and [clone](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository) this GitHub repository to it.`
+2. Create a local repository and [clone](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository) this GitHub repository to it.`
+    let i = 3
     install.forEach(step => {
+      const finishedStep = renderCodeSnippet(step)
       installSection += `
-1. ${step.trim()}`
+${i}. ${finishedStep.trim()}`
+      i += 1
     });
   } else {
+    let i = 1
     install.forEach(step => {
+      const finishedStep = renderCodeSnippet(step)
       installSection += `
-1. ${step.trim()}`
+${i}. ${finishedStep.trim()}`
+      i += 1
     });
   }
   return installSection
@@ -119,9 +125,12 @@ const renderUsageSection = data => {
   const usage = data.usage.split('+')
   let usageSection = `
 ## Usage`
+  let i = 1;
   usage.forEach(step => {
+    const finishedStep = renderCodeSnippet(step)
     usageSection += `
-1. ${step.trim()}`
+${i}. ${finishedStep.trim()}`
+    i += 1
   })
   return usageSection
 }
@@ -133,13 +142,13 @@ const renderLowerSection = data => {
   if (data.contribute !== ''){
     lowerSection += `
 ## Contributing
-${data.contribute}`
+${renderCodeSnippet(data.contribute)}`
   }
 
   if (data.tests !== ''){
     lowerSection += `
 ## Testing
-${data.tests}`
+${renderCodeSnippet(data.tests)}`
   }
 
   if (data.license !== ''){
@@ -154,6 +163,21 @@ Licensed under the ${data.license} license`
 * If you have any questions regarding this project, please email me at [${data.email}](mailto:${data.email})`
 
   return lowerSection
+}
+
+// This function will render a block code snippet for anything wrapped in {}
+const renderCodeSnippet = text => {
+  // const textArr = text.split('{')
+  // let returnText = ``
+  // textArr.forEach(part => {
+  //   if(part.slice(-1) === '}') {
+  //     returnText += '\n```\n' + part.slice(0, -1) + '\n ```\n'
+  //   } else {
+  //     returnText += part
+  //   }
+  // })
+  
+  return text.split('|').join('\n```\n')
 }
 
 // This function generates the markdown for README

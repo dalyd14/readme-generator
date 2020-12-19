@@ -36,7 +36,7 @@ const prompt = [
     {
         type: 'input',
         name: 'install',
-        message: "Default steps for how to download Node.js and clone a repository have been included. Please continue with any further steps of how to finish installation of this projecte (seperate each step with a '+'): ",
+        message: "Default steps for how to download Node.js and clone a repository have been included. Please continue with any further steps of how to finish installation of this projecte (seperate each step with a '+'; to indicate a code snippet, wrap the text in ``): ",
         when: answers => {
             if (answers.typeOf === "Node.js App") {
                 return true
@@ -48,7 +48,7 @@ const prompt = [
     {
         type: 'input',
         name: 'installOther',
-        message: "Please enter the steps of how the project is to be installed (seperate each step with a '+'): ",
+        message: "Please enter the steps of how the project is to be installed (seperate each step with a '+'; to indicate a code snippet, wrap the text in ``): ",
         when: answers => {
             if (answers.typeOf === "Other") {
                 return true
@@ -101,11 +101,11 @@ const writeToFile = (fileName, data) => {
 const answers = {
     title: 'ReadMe Generator',
     description: 'This Node.js app will generate a professional README automatically.',
-    typeOf: "Node.js App",
-    install: 'Navigate to the folder in your terminal+Run the following command to install the required dependencies npm i+Type in "node index"+If there is an error, please make sure you did steps 1 and 2 correctly',
-    usage: 'Run "node index" from your terminal + Answer the questions that will pop up regarding your project +Once you are finished answering the questions the ReadMe will be generated+You can locate the new file in the "dist" folder+Make any necessary changes need+Remember to add any pictures or links!',
+    typeOf: 'Node.js App',
+    install: 'Navigate to the folder in your terminal+Run the following command to install the required dependencies |npm i|+Type in |node index|+If there is an error, please make sure you did steps 1 and 2 correctly',
+    usage: 'Run this from your terminal |node index| + Answer the questions that will pop up regarding your project +Once you are finished answering the questions the ReadMe will be generated+You can locate the new file in the "dist" folder+Make any necessary changes need+Remember to add any pictures or links!',
     contribute: 'Please feel free to add to this project. You can clone/fork the repository and make any pull requests you would like.',
-    tests: "Please run the following command 'npm test'",
+    tests: "Please run the following command |npm test|",
     license: 'Apache License 2.0',
     username: 'dalyd14',
     email: 'dalyd14@gmail.com'
