@@ -26,7 +26,7 @@ const renderLicenseBadge = license => {
 const renderTableOfContents = data => {
   let contents = ``
   Object.keys(data).forEach(key => {
-    if(data[key] === '') {
+    if(data[key] === '' || (key === 'license' & data[key] === 'None')) {
       delete data[key]
     } else {
       switch (key) {
@@ -163,7 +163,7 @@ ${renderCodeSnippet(data.contribute)}`
 ${renderCodeSnippet(data.tests)}`
   }
 
-  if (data.license !== 'None'){
+  if (data.license & data.license !== 'None'){
     lowerSection += `
 ## License
 Licensed under the ${data.license} license`
@@ -175,7 +175,7 @@ Licensed under the ${data.license} license`
 * Please visit my [GitHub Profile](https://github.com/${data.username})`
 
   if (data.email){
-    lowerSection +=`
+    lowerSection += `
 * If you have any questions regarding this project, please email me at [${data.email}](mailto:${data.email})`
   }
 
