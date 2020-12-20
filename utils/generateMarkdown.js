@@ -96,32 +96,36 @@ const renderInstallSection = data => {
   } else if (data.typeOf === "Other" & data.install) {
     install = data.installOther.split("+")
   }
-  let installSection = `
+  if (data.typeOf === "Deployed Website" || !!install.length) {
+    let installSection = `
 ## Installation`
-  if (data.typeOf === "Deployed Website") {
-    installSection += `
+    if (data.typeOf === "Deployed Website") {
+      installSection += `
 This is a website application: please go to this [link](${install})`
-  } else if (data.typeOf === "Node.js App" & !!install.length) {
-    installSection += `
+    } else if (data.typeOf === "Node.js App") {
+      installSection += `
 1. This is a Node.js application: please make sure you have [node downloaded](https://nodejs.org/en/download/)
 2. Create a local repository and [clone](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository) this GitHub repository to it.`
-    let i = 3
-    install.forEach(step => {
-      const finishedStep = renderCodeSnippet(step)
-      installSection += `
+      let i = 3
+      install.forEach(step => {
+        const finishedStep = renderCodeSnippet(step)
+        installSection += `
 ${i}. ${finishedStep.trim()}`
-      i += 1
-    });
-  } else if (data.typeOf === "Other" & !!install.length) {
-    let i = 1
-    install.forEach(step => {
-      const finishedStep = renderCodeSnippet(step)
-      installSection += `
+        i += 1
+      });
+    } else if (data.typeOf === "Other") {
+      let i = 1
+      install.forEach(step => {
+        const finishedStep = renderCodeSnippet(step)
+        installSection += `
 ${i}. ${finishedStep.trim()}`
-      i += 1
-    });
+        i += 1
+      });
+    }
+    return installSection
+  } else {
+    return ''
   }
-  return installSection
 }
 
 // This function creates the usage instructions section of the README
@@ -159,16 +163,21 @@ ${renderCodeSnippet(data.contribute)}`
 ${renderCodeSnippet(data.tests)}`
   }
 
-  if (data.license){
+  if (data.license !== 'None'){
     lowerSection += `
 ## License
 Licensed under the ${data.license} license`
   }
 
+  
   lowerSection += `
 ## Questions
-* Please visit my [GitHub Profile](https://github.com/${data.username})
+* Please visit my [GitHub Profile](https://github.com/${data.username})`
+
+  if (data.email){
+    lowerSection +=`
 * If you have any questions regarding this project, please email me at [${data.email}](mailto:${data.email})`
+  }
 
   return lowerSection
 }
