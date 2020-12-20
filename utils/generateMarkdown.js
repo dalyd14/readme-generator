@@ -139,19 +139,19 @@ ${i}. ${finishedStep.trim()}`
 // the testing section, the license section and finally the questions section
 const renderLowerSection = data => {
   let lowerSection = ``
-  if (data.contribute !== ''){
+  if (data.contribute){
     lowerSection += `
 ## Contributing
 ${renderCodeSnippet(data.contribute)}`
   }
 
-  if (data.tests !== ''){
+  if (data.tests){
     lowerSection += `
 ## Testing
 ${renderCodeSnippet(data.tests)}`
   }
 
-  if (data.license !== ''){
+  if (data.license){
     lowerSection += `
 ## License
 Licensed under the ${data.license} license`
@@ -167,16 +167,6 @@ Licensed under the ${data.license} license`
 
 // This function will render a block code snippet for anything wrapped in {}
 const renderCodeSnippet = text => {
-  // const textArr = text.split('{')
-  // let returnText = ``
-  // textArr.forEach(part => {
-  //   if(part.slice(-1) === '}') {
-  //     returnText += '\n```\n' + part.slice(0, -1) + '\n ```\n'
-  //   } else {
-  //     returnText += part
-  //   }
-  // })
-  
   return text.split('|').join('\n```\n')
 }
 

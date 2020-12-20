@@ -39,7 +39,7 @@ node index
 ## Contributing
 Please feel free to add to this project. You can clone/fork the repository and make any pull requests you would like.
 ## Testing
-Please run the following command 
+Run this code from the terminal 
 ```
 npm test
 ```
