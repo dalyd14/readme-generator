@@ -60,7 +60,7 @@ const prompt = [
     {
         type: 'input',
         name: 'install',
-        message: "Default steps for how to download Node.js and clone a repository have been included. Please continue with any further steps of how to finish installation of this project: ",
+        message: "Default steps for how to download Node.js and clone a repository have been included. Please continue with any further steps of how to finish installation of this project (seperate steps with a '+' and wrap any code snippets with '||'): ",
         when: answers => {
             if (answers.typeOf === "Node.js App") {
                 return true
@@ -72,7 +72,7 @@ const prompt = [
     {
         type: 'input',
         name: 'installOther',
-        message: "Please enter the steps of how the project is to be installed: ",
+        message: "Please enter the steps of how the project is to be installed (seperate steps with a '+' and wrap any code snippets with '||'): ",
         when: answers => {
             if (answers.typeOf === "Other") {
                 return true
@@ -84,17 +84,17 @@ const prompt = [
     {
         type: 'input',
         name: 'usage',
-        message: "Please type the steps of how the project is to be used: "
+        message: "Please type the steps of how the project is to be used (seperate steps with a '+' and wrap any code snippets with '||'): "
     },
     {
         type: 'input',
         name: 'contribute',
-        message: "Please type how you would like users to contribute to your project: "
+        message: "Please type how you would like users to contribute to your project (wrap any code snippets with '||'): "
     },
     {
         type: 'input',
         name: 'tests',
-        message: "Please type how users can test their contributions: "
+        message: "Please type how users can test their code (wrap any code snippets with '||'): "
     },
     {
         type: 'list',
