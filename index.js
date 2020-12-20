@@ -8,18 +8,34 @@ const prompt = [
     {
         type: 'input',
         name: 'title',
-        message: "Please type the project's title: "
+        message: "Please type the project's title: ",
+        validate: githubInput => {
+            if(githubInput) {
+                return true
+            } else {
+                console.log('Please enter your Project Name!')
+                return false
+            }
+        }
     },
     {
         type: 'input',
         name: 'description',
-        message: "Please type the project's description: "
+        message: "Please type the project's description: ",
+        validate: githubInput => {
+            if(githubInput) {
+                return true
+            } else {
+                console.log('Please enter your Project Description!')
+                return false
+            }
+        }
     },
     {
         type: 'list',
         name: 'typeOf',
         message: "What type of project is this: ",
-        choices: ["Deployed Website", "Node.js App", "Other"]
+        choices: ["Deployed Website", "Node.js App", "Other"],
     },
     {
         type: 'input',
@@ -29,6 +45,14 @@ const prompt = [
             if (answers.typeOf === "Deployed Website") {
                 return true
             } else {
+                return false
+            }
+        },
+        validate: githubInput => {
+            if(githubInput) {
+                return true
+            } else {
+                console.log('Please enter your Project URL!')
                 return false
             }
         }
@@ -76,17 +100,25 @@ const prompt = [
         type: 'list',
         name: 'license',
         message: "Please choose a license for this project: ",
-        choices: ['Apache License 2.0', 'GNU General Public License v3.0', 'MIT', 'The Unlicense']
+        choices: ['Apache License 2.0', 'GNU General Public License v3.0', 'MIT', 'The Unlicense', 'None']
     },
     {
         type: 'input',
         name: 'username',
-        message: "Please type your GitHub username: "
+        message: "Please type your GitHub username: ",
+        validate: githubInput => {
+            if(githubInput) {
+                return true
+            } else {
+                console.log('Please enter your GitHub Username!')
+                return false
+            }
+        }
     },
     {
         type: 'input',
         name: 'email',
-        message: "Please type your email address: "
+        message: "Please type your email address: ",
     }
 ];
 

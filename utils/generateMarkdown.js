@@ -72,32 +72,36 @@ const renderTableOfContents = data => {
 // This function creates an intro section that will include the license badge, the title, 
 // table of contents and then the project description
 const renderIntroSection = data => {
-  return `
-${renderLicenseBadge(data.license)}
+  let introSection =''
+  if (data.license !== 'None') {
+    introSection += renderLicenseBadge(data.license)
+  }
+  introSection += `
 # ${data.title}
 ## Table of Contents
 ${renderTableOfContents(data)}
 ## Project Description
 ${data.description}
 `
+  return introSection
 }
 
 // This function creates the installation instructions section of the README
 const renderInstallSection = data => {
-  let install = ['']
+  let install = []
   if (data.typeOf === "Deployed Website") {
-    install = data.url.split("+")
-  } else if (data.typeOf === "Node.js App") {
+    install = data.url.trim()
+  } else if (data.typeOf === "Node.js App" & data.install) {
     install = data.install.split("+")
-  } else {
+  } else if (data.typeOf === "Other" & data.install) {
     install = data.installOther.split("+")
   }
   let installSection = `
 ## Installation`
   if (data.typeOf === "Deployed Website") {
     installSection += `
-This is a website application: please go to this [link](${install[0].trim()})`
-  } else if (data.typeOf === "Node.js App") {
+This is a website application: please go to this [link](${install})`
+  } else if (data.typeOf === "Node.js App" & !!install.length) {
     installSection += `
 1. This is a Node.js application: please make sure you have [node downloaded](https://nodejs.org/en/download/)
 2. Create a local repository and [clone](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository) this GitHub repository to it.`
@@ -108,7 +112,7 @@ This is a website application: please go to this [link](${install[0].trim()})`
 ${i}. ${finishedStep.trim()}`
       i += 1
     });
-  } else {
+  } else if (data.typeOf === "Other" & !!install.length) {
     let i = 1
     install.forEach(step => {
       const finishedStep = renderCodeSnippet(step)
@@ -122,17 +126,21 @@ ${i}. ${finishedStep.trim()}`
 
 // This function creates the usage instructions section of the README
 const renderUsageSection = data => {
-  const usage = data.usage.split('+')
-  let usageSection = `
+  if (data.usage) {
+    const usage = data.usage.split('+')
+    let usageSection = `
 ## Usage`
-  let i = 1;
-  usage.forEach(step => {
-    const finishedStep = renderCodeSnippet(step)
-    usageSection += `
+    let i = 1;
+    usage.forEach(step => {
+      const finishedStep = renderCodeSnippet(step)
+      usageSection += `
 ${i}. ${finishedStep.trim()}`
-    i += 1
-  })
-  return usageSection
+      i += 1
+    })
+    return usageSection    
+  } else {
+    return ''
+  }
 }
 
 // This function creates the lower section that will include the contributing section, 
