@@ -1,13 +1,12 @@
-
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 # ReadMe Generator
 ## Table of Contents
-* [Project Description](#project-description)
-* [Installation](#installation)
-* [Usage](#usage)
-* [Contributing](#contributing)
-* [License](#license)
-* [Questions](#questions)
+- [ReadMe Generator](#readme-generator)
+  - [Table of Contents](#table-of-contents)
+  - [Project Description](#project-description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [Questions](#questions)
 
 ## Project Description
 This Node.js app will generate a professional README automatically.
@@ -26,20 +25,21 @@ node index
 ```
 6. If there is an error, please make sure you did steps 1 and 2 correctly
 ## Usage
-1. Run this from your terminal 
+1. Once you are in the folder, run this from your terminal 
 ```
 node index
 ```
 2. Answer the questions that will pop up regarding your project
-3. Once you are finished answering the questions the ReadMe will be generated
-4. You can locate the new file in the "dist" folder
-5. Make any necessary changes need
-6. Remember to add any pictures or links!
+3. When answering the install and usage questions, seperate the steps with a '+' plus sign
+4. When answering other questions, you can wrap code snippets with '||'. i.e. '|npm install|'
+5. Once you are finished answering the questions the ReadMe will be generated
+6. You can locate the new file in the "dist" folder
+7. Make any necessary changes need
+8. Remember to add any pictures or links!
+![Screenshot](./images/readme-gen.PNG)
 ## Contributing
 Please feel free to add to this project. You can clone/fork the repository and make any pull requests you would like.
 
-## License
-Licensed under the Apache License 2.0 license
 ## Questions
 * Please visit my [GitHub Profile](https://github.com/dalyd14)
 * If you have any questions regarding this project, please email me at [dalyd14@gmail.com](mailto:dalyd14@gmail.com)
