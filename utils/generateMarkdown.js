@@ -91,9 +91,9 @@ const renderInstallSection = data => {
   let install = []
   if (data.typeOf === "Deployed Website") {
     install = data.url.trim()
-  } else if (data.typeOf === "Node.js App" & data.install) {
+  } else if (data.typeOf === "Node.js App" & data.install.length>0) {
     install = data.install.split("+")
-  } else if (data.typeOf === "Other" & data.install) {
+  } else if (data.typeOf === "Other" & data.install.length>0) {
     install = data.installOther.split("+")
   }
   if (data.typeOf === "Deployed Website" || !!install.length) {

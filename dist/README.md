@@ -1,34 +1,40 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-# Weather Dashboard
+
+# Team Roster Generator
 ## Table of Contents
 * [Project Description](#project-description)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Contributing](#contributing)
 * [Testing](#testing)
-* [License](#license)
 * [Questions](#questions)
 
 ## Project Description
-A weather app for looking at the weather for your favorite locations
+This is a command line app that allows a user to enter a team's members and have the roster be outputted as an HTML page.
 
 ## Installation
-This is a website application: please go to this [link](https://dalyd14.github.io/weather-dashboard/)
+1. This is a Node.js application: please make sure you have [node downloaded](https://nodejs.org/en/download/)
+2. Create a local repository and [clone](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository) this GitHub repository to it.
+3. Navigate to the folder in your terminal
+4. Run the following command to install the required dependencies 
+```
+npm i
+```
+5. Type in 
+```
+node index
+```
+6. If there is an error, please make sure you did steps 1 and 2 correctly
 ## Usage
-1. First navigate to the site
-2. Then locate the search bar and search for the zip code or city name of the location you want the weather for
-3. Then a map of the area will be displayed
-4. The current weather of the area will be shown as well
-5. Also the 5 day forecast will be displayed
-6. Finally, your previous searches will be saved
-## Contributing
-You can contribute. Feel free to make pull requests
+1. Run this from your terminal 
+```
+node index
+```
+2. Follow the prompts to fill out the team roster
+3. When the app is done, you can find the output html in the dist folder
 ## Testing
-You can test your code by running the command 
+Run the following code from the terminal 
 ```
 npm test
 ```
 
 ## Questions
 * Please visit my [GitHub Profile](https://github.com/dalyd14)
-* If you have any questions regarding this project, please email me at [dalyd14@gmail.com](mailto:dalyd14@gmail.com)
