@@ -1,12 +1,10 @@
 # ReadMe Generator
 ## Table of Contents
-- [ReadMe Generator](#readme-generator)
-  - [Table of Contents](#table-of-contents)
-  - [Project Description](#project-description)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Contributing](#contributing)
-  - [Questions](#questions)
+* [Project Description](#project-description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [Questions](#questions)
 
 ## Project Description
 This Node.js app will generate a professional README automatically.
