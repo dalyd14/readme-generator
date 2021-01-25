@@ -1,40 +1,30 @@
 
-# Team Roster Generator
+# Employee Tracker
 ## Table of Contents
 * [Project Description](#project-description)
 * [Installation](#installation)
 * [Usage](#usage)
+* [Contributing](#contributing)
 * [Testing](#testing)
 * [Questions](#questions)
 
 ## Project Description
-This is a command line app that allows a user to enter a team's members and have the roster be outputted as an HTML page.
+This is a terminal side app that will manage your employees. You can manage departments, roles, and of course, employees. This app was part of a bootcamp weekly assignment and has all the fundamentals of MySQL and relational databases in it.
 
 ## Installation
 1. This is a Node.js application: please make sure you have [node downloaded](https://nodejs.org/en/download/)
 2. Create a local repository and [clone](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository) this GitHub repository to it.
-3. Navigate to the folder in your terminal
-4. Run the following command to install the required dependencies 
+3. Run the following code from the terminal to initiate the app 
 ```
-npm i
+npm start
 ```
-5. Type in 
-```
-node index
-```
-6. If there is an error, please make sure you did steps 1 and 2 correctly
 ## Usage
-1. Run this from your terminal 
-```
-node index
-```
-2. Follow the prompts to fill out the team roster
-3. When the app is done, you can find the output html in the dist folder
+1. When the app is started you will be presented with the main menu
+2. You can browse through the several options and select what you would like to see and do
+3. Please note that there are schema.sql and seed.sql files that can be loadedfor the app to work correctly
+## Contributing
+Please feel free to fork this repo and contribute as you see fit
 ## Testing
-Run the following code from the terminal 
-```
-npm test
-```
-
+There are no testing capabilities
 ## Questions
 * Please visit my [GitHub Profile](https://github.com/dalyd14)
